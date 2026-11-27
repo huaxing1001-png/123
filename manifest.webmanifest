@@ -1,0 +1,17 @@
+{
+  "name": "金禾鍋貼｜一口金黃，日日好味",
+  "short_name": "金禾鍋貼",
+  "description": "手工鍋貼線上點餐、門市資訊與預約",
+  "lang": "zh-TW",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6f0e6",
+  "theme_color": "#c66b36",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
