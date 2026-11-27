@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build PWA icons (glowing potsticker) from a real photo.
 
-Usage: python3 tools/make_icons.py path/to/potsticker.jpg
+Usage: python3 tools/make_icons.py path/to/potsticker.jpg [left,top,size]   (optional square crop in pixels)
 The photo should show a single potsticker, roughly centred. Without an argument a
 placeholder drawing is generated (NOT a real photo - replace it before launch).
 """
@@ -53,5 +53,7 @@ def build(photo, size, safe):
 
 if __name__ == "__main__":
     photo = Image.open(sys.argv[1]) if len(sys.argv) > 1 else placeholder()
+    if len(sys.argv) > 2:
+        l, t, n = map(int, sys.argv[2].split(",")); photo = photo.convert("RGB").crop((l, t, l + n, t + n))
     for name, size, safe in (("icon-192.png", 192, .72), ("icon-512.png", 512, .72), ("icon-maskable-512.png", 512, .56), ("apple-touch-icon.png", 180, .72)):
         build(photo, size, safe).save(f"icons/{name}", optimize=True); print("wrote icons/" + name)
